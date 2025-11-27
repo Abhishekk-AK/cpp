@@ -50,5 +50,81 @@ int main(){
         cout<<endl;
     }
 
+    int n=5;
+
+    //pattern7 -> standard centered pyramid
+    for(int i=1; i<=n; i++) {
+        for(int j=0; j<n-i; j++) {
+            cout<<" ";
+        }
+        for(int k=0; k<2*i-1; k++) {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    //pattern8 -> inverse centered pyramid
+    for(int i=n; i>=1; i--) {
+        for(int j=0; j<n-i; j++) {
+            cout<<" ";
+        }
+        for(int k=0; k<2*i-1; k++) {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    //pattern9 -> standard diamond
+    {
+        for(int i=1; i<=n; i++) {
+            for(int j=0; j<n-i; j++) {
+                cout<<" ";
+            }
+            for(int k=0; k<2*i-1; k++) {
+                cout<<"*";
+            }
+            cout<<endl;
+        }
+
+        for(int i=n-1; i>=1; i--) {
+            for(int j=0; j<n-i; j++) {
+                cout<<" ";
+            }
+            for(int k=0; k<2*i-1; k++) {
+                cout<<"*";
+            }
+            cout<<endl;
+        }   
+    }
+
+    //left-aligned diamond
+    {
+        //method-1
+        for(int i=1; i<=n; i++) {
+            for(int j=0; j<i; j++) {
+                cout<<"*";
+            }
+            cout<<endl;
+        }
+
+        for(int i=n-1; i>=1; i--) {
+            for(int j=0; j<i; j++) {
+                cout<<"*";
+            }
+            cout<<endl;
+        } 
+
+        //method-2
+        int rows = 2*n-1;
+        for(int i=1; i<=rows; i++) {
+
+            int stars = (i <= n) ? i : (rows - i + 1);
+
+            for(int j=1; j<=stars; j++) {
+                cout<<"*";
+            }
+            cout<<endl;
+        }
+    }
     return 0;
 }
