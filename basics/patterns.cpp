@@ -97,7 +97,7 @@ int main(){
         }   
     }
 
-    //left-aligned diamond
+    //pattern10 left-aligned diamond
     {
         //method-1
         for(int i=1; i<=n; i++) {
@@ -126,5 +126,39 @@ int main(){
             cout<<endl;
         }
     }
+
+    //pattern11
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=i; j++) {
+            int res = (i+j)%2 ? 0 : 1;
+            cout<<res<<" ";
+            // cout<<(1-(i+j)%2)<<" ";
+            // cout<<-((i+j)%2-1)<<" ";
+        }
+        cout<<endl; 
+    }
+
+    //pattern12 Mirror-triangle
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=i; j++) {
+            cout<<j;
+        }
+
+        for(int k=2*(n-i); k>=2; k-=2) {
+            cout<<"  ";
+        }
+
+        // int spaces = 2*(n-i);
+        // for(int s=0; s<spaces; s++)
+        //     cout<<" ";
+
+        // cout<<string(2*(n-i), ' ');
+
+        for(int l=i; l>=1; l--) {
+            cout<<l;
+        }
+        cout<<endl;
+    }
+    
     return 0;
 }
