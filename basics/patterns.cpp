@@ -159,6 +159,66 @@ int main(){
         }
         cout<<endl;
     }
+
+    //pattern13
+    int res = 1;
+    for(int i=1; i<=n; i++) { 
+        for (int j=1; j<=i; j++) {
+            cout<<res++<<" ";
+        }
+        cout<<endl;
+    }
+
+    //pattern14
+    for(int i=1; i<=n; i++) { 
+        char res = 'A';
+        for (int j=1; j<=i; j++) {
+            cout<<res++<<" ";
+        }
+        cout<<endl;
+    }
+
+    //pattern15
+    for(char i='E'; i>='A'; i--) { 
+        for(char j='A'; j<=i; j++) {
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+
+    //pattern16
+    for(char i='A'; i<='E'; i++) { 
+        for(char j='A'; j<=i; j++) {
+            cout<<i<<" ";
+        }
+        cout<<endl;
+    }
+
+    //pattern17 Pallindromic-Alphabet pyramid
+    for(int i=0; i<n; i++) {
+
+        for(int j=n-1; j>=i; j--) {
+            cout<<" ";
+        }
+        for(int j=0; j<=i; j++) {
+            cout<<char('A' + j);
+        }
+        for(int j=i-1; j>=0; j--) {
+            cout<<char('A' + j);
+        }
+        cout<<'\n';
+    }
+
+    //pattern18 Inverted-Alphabet-Triangle
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<=i; j++) {
+
+            int res = i-j;
+            char ch = 'A' + (n-1);
+            cout<<char(ch - res)<<" ";
+        }
+        cout<<'\n';
+    }
     
     return 0;
 }
