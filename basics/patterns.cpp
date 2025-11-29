@@ -220,6 +220,46 @@ int main(){
         cout<<'\n';
     }
 
+    //pattern19 Double-mirrored-hourglass
+    for(int i=1; i<=2*n; i++) {
+
+        int stars = (i<=n) ? (n-i+1) : (i-n);
+        for(int j=1; j<=stars; j++) {
+                cout<<"*";
+        }
+
+        //int spaces = (i<=n) ? 2*(i-1) : 2*(2*n-i);
+        int spaces = 2*(n-stars);
+        for(int j=0; j<spaces; j++) {
+            cout<<" ";
+        }
+
+        for(int j=1; j<=stars; j++) {
+                cout<<"*";
+        }
+        cout<<'\n';
+    }
+
+    //pattern20 Mirrored-butterfly
+    for(int i=1; i<2*n; i++) {
+
+        int stars = (i<=n) ? i : (2*n-i);
+        for(int j=1; j<=stars; j++) {
+            cout<<"*";
+        }
+
+        int spaces = (i<n) ? (2*n-2*i) : 2*(i-n) ;
+        for(int j=spaces; j>=1; j--) {
+            cout<<" ";
+        }
+
+        for(int j=1; j<=stars; j++) {
+            cout<<"*";
+        }
+
+        cout<<'\n';
+    }
+
     //pattern21 Hollow-square
     for(int i=1; i<=n; i++) {
         for(int j=1; j<=n; j++) {
