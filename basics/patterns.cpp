@@ -219,6 +219,144 @@ int main(){
         }
         cout<<'\n';
     }
+
+    //pattern21 Hollow-square
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=n; j++) {
+
+            cout<<((i==1 || j==1 || i==n || j==n) ? "*" : " ");
+
+        }
+        cout<<'\n';
+    } 
+
+    //pattern22
+    {
+        //method-1 array
+        int size = 2*n-1;
+        int a[100][100];
+
+        for(int ring=0; ring<n; ring++) {
+            
+            int val = n-ring;
+            int start = ring;
+            int end = size-1-ring;
+
+
+            for(int j=start; j<=end; j++) {
+                a[start][j] = val;
+            }
+
+            for(int j=start; j<=end; j++) {
+                a[end][j] = val;
+            }
+            
+            for(int i=start; i<=end; i++) {
+                a[i][start] = val;
+            }
+
+            for(int i=start; i<=end; i++) {
+                a[i][end] = val;
+            }
+        }
+
+        for(int i=0; i<size; i++) {
+            for(int j=0; j<size; j++) {
+                cout<<a[i][j]<<" ";
+            }
+            cout<<'\n';
+        }
+        cout<<'\n';
+        
+        //method2
+        for(int i=0; i<size; i++) {
+            for(int j=0; j<size; j++) {
+
+                int top=i;
+                int left=j;
+                int right=size-1-j;
+                int bottom=size-1-i;
+
+                int smallest=top;
+
+                if(left<smallest)
+                    smallest=left;
+                if(right<smallest)
+                    smallest=right;
+                if(bottom<smallest)
+                    smallest=bottom;
+                
+                int val=n-smallest;
+
+                cout<<val<<" ";
+            }
+            cout<<'\n';
+        }
+        cout<<'\n';
+
+        //method3
+        for(int i=0; i<size; i++) {
+            for(int j=0; j<size; j++) {
+
+                int val=n;
+
+                for(int ring=0; ring<n; ring++) {
+
+                    if(i==ring || j==ring || i==size-1-ring || j==size-1-ring) {
+                        val=n-ring;
+                        break;
+                    }
+                }
+                cout<<val<<" ";
+            }
+            cout<<'\n';
+        }
+        cout<<'\n';
+
+        //method4
+        for(int i=0; i<size; i++) {
+            for(int j=0; j<size; j++) {
+
+                int top=i;
+                int left=j;
+                int right=size-1-j;
+                int bottom=size-1-i;
+
+                int val = min(min(top,bottom), min(left,right));
+
+                cout<<n-val<<" ";
+            }
+            cout<<'\n';
+        }
+        cout<<'\n';
+
+    }
+
+    //pattern23
+    int size=2*n-1;
+    for(int i=0; i<size; i++) {
+        for(int j=0; j<size; j++) {
+
+            int top=i;
+            int left=j;
+            int right=size-1-j;
+            int bottom=size-1-i;
+
+            int smallest=top;
+
+            if(left<smallest)
+                smallest=left;
+            if(right<smallest)
+                smallest=right;
+            if(bottom<smallest)
+                smallest=bottom;
+            
+            int val=n-smallest;
+
+            cout<<smallest<<" ";
+        }
+        cout<<'\n';
+    }
     
     return 0;
 }
