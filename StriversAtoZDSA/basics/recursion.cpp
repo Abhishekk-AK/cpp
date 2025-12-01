@@ -132,6 +132,27 @@ bool palindromeRecursion(string& s) {
     return isPalindromeHelper(s, 0, s.size()-1);
 }
 
+//pallindrome with conditions to consider only alpha-numeric and only small-alpha compare
+bool isPalHelper(string& s, int left, int right) {
+    if(left>=right)
+        return true;
+
+    if( !isalnum(s[left]) ) {
+        return isPalHelper(s, left+1, right);
+    }
+    if( !isalnum(s[right]) ) {
+        return isPalHelper(s, left, right-1);
+    }
+
+    if(tolower(s[left]) != tolower(s[right]))
+        return false;
+
+    return isPalHelper(s, left+1, right-1);
+}
+
+bool palindromeConditions(string& s) {
+    return isPalHelper(s, 0, s.size()-1);
+}
 
 int main() {
 
@@ -171,6 +192,9 @@ int main() {
 
     string s1="hjuih";
     cout<<palindromeRecursion(s1)<<'\n';
+
+    string s2="A man, a plan, a canal: Panama";
+    cout<<palindromeConditions(s2)<<'\n';
 
     return 0;
 }
