@@ -42,6 +42,32 @@ int searchMatrix(vector<vector<int>>& mat, int target) {
     return false;
 }
 
+bool searchMatrixOpt(vector<vector<int>>& mat, int target) {
+    int m=mat.size();
+    int n=mat[0].size();
+
+    //operating on array from (0)-to-(m*n-1)
+    int low=0; int high=m*n-1;
+
+    while(low<=high) {
+        int mid=low+(high-low)/2;
+
+        int row=mid/n;
+        int col=mid%n;
+
+        if(mat[row][col]==target) {
+            return true;
+        }
+        else if (mat[row][col]<target) {
+            low=mid+1;
+        }
+        else {
+            high=mid-1;
+        }
+    }
+    return false;
+}
+
 
 int main() {
 
@@ -73,7 +99,9 @@ int main() {
 
     cout<<searchMat(mt, k)<<endl;
 
-    cout<<searchMatrix(mt, k);
+    cout<<searchMatrix(mt, k)<<endl;
+
+    cout<<searchMatrixOpt(mt, k);
 
     return 0;
 }
