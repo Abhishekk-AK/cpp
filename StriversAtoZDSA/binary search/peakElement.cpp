@@ -34,6 +34,24 @@ int peakElement(vector<int>& nums){
     return -1;
 }
 
+int peakElement1(vector<int>& nums) {
+    int n=nums.size();
+    int low=0;
+    int high=n-1;
+
+    while(low<high) {
+        int mid=low+(high-low)/2;
+
+        if(nums[mid]>nums[mid+1]) {
+            high=mid;
+        }
+        else {
+            low=mid+1;
+        }
+    }
+    return low;
+}
+
 int main() {
     int n;
     cin>>n;
@@ -53,6 +71,8 @@ int main() {
     cout<<endl; 
 
     cout<<peakElement(v)<<endl;
+
+    cout<<peakElement1(v)<<endl;
 
     return 0;
 }
