@@ -12,12 +12,24 @@ int countSetBits(int n) {
     return count;
 }
 
+int countSetBitsOpt(int n) {
+    int count=0;
+
+     while(n) {
+        n &= (n-1);
+        count++;
+    }
+
+    return count;
+}
 
 int main() {
     int a;
     cin>>a;
 
     cout<<countSetBits(a);
+
+    cout<<endl<<countSetBitsOpt(a);
 
     return 0;
 }
